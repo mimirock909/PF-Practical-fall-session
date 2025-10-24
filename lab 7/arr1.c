@@ -15,6 +15,8 @@ int main(){
     avg=avgsum/a;
     printf("sum of even numbers= %d",sum);
     printf("average = %d",avg);
+	printf("total sum  :%d\n", avgsum);
 	
 	return 0;
 }
+
