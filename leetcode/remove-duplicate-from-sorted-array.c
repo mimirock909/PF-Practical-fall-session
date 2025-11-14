@@ -28,5 +28,6 @@ int removeDuplicates(int* nums, int numsSize) {
         printf(" %d , ", nums[i]);
     }
     printf("}");
-
+    return numsSize;
 }
+
