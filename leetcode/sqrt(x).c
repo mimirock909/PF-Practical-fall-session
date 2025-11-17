@@ -9,10 +9,10 @@ int main(){
 	return 0;
 }
 int msqrt(int x) {
-    int i=1;
+    long long i=1;
     while (1){
        
-	    int square= i * i;
+	    long long square= i * i;
         
         if(x==square){
            
@@ -27,3 +27,4 @@ int msqrt(int x) {
 
     } 
  }
+
