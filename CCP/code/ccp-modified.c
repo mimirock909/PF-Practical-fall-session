@@ -1,5 +1,4 @@
  #include<stdio.h>
- #include<conio.h>
  #include<string.h>
 void enter(char name[][20], char dept[][20],char email[][30],int rollno[], long long num[], float gpa[],int *total);
 void modify(char name[][20], char dept[][20], char email[][30], int rollno[], long long num[], float gpa[], int *total);
@@ -25,6 +24,9 @@ int main (){
 			 enter(name,dept,email,rollno,num,gpa,&total);
 	       	 break;
 	    	case 2:
+			    if(total == 0) { 
+                    printf("\nNo records to display.\n");
+                } else {
 				for(i=0;i<total;i++){
 			 	 printf("student %d\n",i+1);	
 	 			 printf(" name: %s\n",name[i]);
@@ -34,6 +36,7 @@ int main (){
 		     	 printf(" email address : %s\n",email[i]);
 		     	 printf(" phone number : %lld\n",num[i]);	
 				}
+			   }
 			 
 		     break;
 			case 3:	
@@ -44,17 +47,22 @@ int main (){
 	    	 break;  
 			case 5:
 		     delet(name,dept,email,rollno,num,gpa,&total);
-		     break;	      	 	   
-	    }
-		if(a==6){
+		     break;	
+		   default:
+			if(a==6){
 			printf("Program ended .....");
 			return 0;
-		}
+		   }else{
+				printf("\nInvalid choice! Try again.\n");
+			}
+			
+	    }
+		
     }  } 
-	 	 void enter(char name[][20], char dept[][20],char email[][30],int rollno[], long long num[], float gpa[],int *total){
+ void enter(char name[][20], char dept[][20],char email[][30],int rollno[], long long num[], float gpa[],int *total){
 	    int b;
 	    int ent;
-		printf("if you want to enter a single record press 1 else press 2. ");
+		printf("if you want to enter a single record press 1 else press any other number. ");
 		scanf("%d",&b);
 		if (b==1){
 			printf(" name : ");
@@ -101,7 +109,7 @@ void search(char name[][20], char dept[][20], char email[][30],int rollno[], lon
     printf("Enter the roll number of the student you want to search: ");
     scanf("%d", &r);
 
-    for (i = 0; i < total; i++) {
+    for (i = 0; i <*total; i++) {
         if (rollno[i] == r) {
             found = 1;
             printf("\n? Record Found:\n");
@@ -127,7 +135,7 @@ void modify(char name[][20], char dept[][20], char email[][30],int rollno[], lon
     printf("Enter the roll number of the student you want to modify: ");
     scanf("%d", &r);
 
-    for (i = 0; i < total; i++) {
+    for (i = 0; i < *total; i++) {
         if (rollno[i] == r) {  
             found = 1;
             printf("\n?? Record found! Enter new details below:\n");
@@ -193,9 +201,9 @@ void delet(char name[][20], char dept[][20], char email[][30], int rollno[], lon
     }
 
     else if (choice == 2) {
-        char confirm;
+        int confirm;
         printf("\n?? Are you sure you want to delete ALL records? (press 1 for yes, else press 2): ");
-        scanf(" %c", &confirm);
+        scanf(" %d", &confirm);
 
         if (confirm == 1) {
             *total = 0;
@@ -209,3 +217,4 @@ void delet(char name[][20], char dept[][20], char email[][30], int rollno[], lon
         printf("\nInvalid choice!\n");
     }
 }
+
