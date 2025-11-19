@@ -77,7 +77,7 @@ int main (){
 			scanf("%s",email[*total]);
 			printf(" phone number : ");
 			scanf("%lld",&num[*total]);
-			*total+=1;
+			*total++;
 		}
 		else{
 			printf("enter the number of enteries: ");
@@ -86,17 +86,17 @@ int main (){
 			for ( i=0;i<ent;i++){
 		 	printf("record %d :\n",i+1);	
 		 	printf(" name : ");
-		  	scanf("%s",&name[*total+i]);
+		  	scanf("%s",&name[*total]);
 		 	printf(" department : ");
-		  	scanf("%s",&dept[*total+i]);
+		  	scanf("%s",&dept[*total]);
 		 	printf(" roll number : ");
-		  	scanf("%d",&rollno[*total+i]);
+		  	scanf("%d",&rollno[*total]);
 		 	printf(" GPA : ");
-		 	scanf("%f",&gpa[*total+i]);
+		 	scanf("%f",&gpa[*total]);
 		 	printf(" email address : ");
-		 	scanf("%s",&email[*total+i]);
+		 	scanf("%s",&email[*total]);
 		 	printf(" phone number : ");
-		 	scanf("%lld",&num[*total+i]);	
+		 	scanf("%lld",&num[*total]);	
 			 (*total)++;	
 			}
 		}
